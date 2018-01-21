@@ -1,18 +1,29 @@
 package ca.kimble.katie_lynn.bestpractices.models;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import java.util.Date;
 
+@Entity(tableName = "to_dos")
 public class ToDo {
 
-    private String id;
+    @PrimaryKey(autoGenerate = true)
+    private Integer id;
+
+    @ColumnInfo(name = "description")
     private String description;
+
+    @ColumnInfo(name = "due_date")
     private Date dueDate;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
